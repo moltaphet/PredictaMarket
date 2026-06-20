@@ -33,7 +33,7 @@ export function useMarkets() {
     queryKey: ["markets"],
     queryFn: () => (contract ? contract.getMarkets() : Promise.resolve([])),
     enabled: !!contract,
-    staleTime: 5_000,
+    staleTime: 0,
     refetchOnWindowFocus: true,
   });
 }
@@ -59,7 +59,7 @@ export function useUserPortfolio() {
     queryKey: ["portfolio", address],
     queryFn: () => (contract && address ? contract.getUserPortfolio(address) : Promise.resolve(null)),
     enabled: !!contract && !!address,
-    staleTime: 5_000,
+    staleTime: 0,
     refetchOnWindowFocus: true,
   });
 }

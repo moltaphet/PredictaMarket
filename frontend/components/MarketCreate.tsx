@@ -39,7 +39,13 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
 const inputClass =
   "w-full rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/25";
 
-export function MarketCreate({ onClose }: { onClose: () => void }) {
+export function MarketCreate({
+  onClose,
+  onCreated,
+}: {
+  onClose: () => void;
+  onCreated?: () => void;
+}) {
   const { address, connect } = useWallet();
   const createMarket = useCreateMarket();
 
@@ -55,6 +61,11 @@ export function MarketCreate({ onClose }: { onClose: () => void }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  // Refetch the markets feed as soon as the creation transaction is confirmed.
+  useEffect(() => {
+    if (createMarket.isSuccess) onCreated?.();
+  }, [createMarket.isSuccess, onCreated]);
 
   const liquidityAtto = useMemo(() => parseGenToAtto(liquidity), [liquidity]);
   const cleanUrls = useMemo(() => urls.map((u) => u.trim()).filter(Boolean), [urls]);
