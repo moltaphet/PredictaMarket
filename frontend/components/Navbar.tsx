@@ -2,7 +2,7 @@
 
 import { Github } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { useWallet, formatAddress } from "@/lib/genlayer/WalletProvider";
+import { WalletButton } from "./WalletButton";
 
 export type TabKey = "markets" | "portfolio" | "protocol";
 
@@ -13,7 +13,6 @@ const TABS: { key: TabKey; label: string }[] = [
 ];
 
 export function Navbar({ tab, onTab }: { tab: TabKey; onTab: (t: TabKey) => void }) {
-  const { address, connecting, connect, disconnect, hasProvider } = useWallet();
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06080b]/80 backdrop-blur-xl">
@@ -69,24 +68,7 @@ export function Navbar({ tab, onTab }: { tab: TabKey; onTab: (t: TabKey) => void
             </svg>
           </a>
 
-          {address ? (
-            <button
-              onClick={disconnect}
-              className="group ml-1 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-2.5 pr-3 text-sm transition-colors hover:border-white/20"
-              title="Disconnect"
-            >
-              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px] shadow-emerald-400/60" />
-              <span className="font-mono text-white/80">{formatAddress(address)}</span>
-            </button>
-          ) : (
-            <button
-              onClick={connect}
-              disabled={connecting}
-              className="ml-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#06080b] transition-opacity hover:opacity-90 disabled:opacity-60"
-            >
-              {connecting ? "Connecting…" : hasProvider ? "Connect Wallet" : "Install Wallet"}
-            </button>
-          )}
+          <WalletButton />
         </div>
       </div>
 
