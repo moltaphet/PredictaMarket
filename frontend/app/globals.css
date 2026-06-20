@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Tailwind v4 theme tokens for the Predicta dark palette. */
+@theme {
+  --color-canvas: #06080b;
+  --color-surface: #0a0c10;
+  --color-yes: #34d399;
+  --color-no: #fb7185;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--color-canvas);
+  color: #e7e9ee;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle premium scrollbar to match the dark theme. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Reusable ambient grid backdrop. */
+.bg-grid {
+  background-image: linear-gradient(to right, #fff 1px, transparent 1px),
+    linear-gradient(to bottom, #fff 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.035;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(70% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.4s ease both;
+}

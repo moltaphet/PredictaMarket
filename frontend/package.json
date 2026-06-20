@@ -1,0 +1,28 @@
+{
+  "name": "predicta-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Predicta — AI-driven decentralized prediction market dashboard on GenLayer.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.5",
+    "genlayer-js": "^0.18.3",
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.3"
+  }
+}

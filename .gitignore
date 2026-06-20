@@ -1,0 +1,131 @@
+# =============================================================================
+# Predicta — root .gitignore
+# Covers the Python/GenLayer contract backend and the Next.js/React frontend.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Secrets & local environment  (NEVER commit real keys/addresses)
+# -----------------------------------------------------------------------------
+.env
+.env.*
+.env*.local
+!.env.example
+*.pem
+*.key
+
+# -----------------------------------------------------------------------------
+# Node.js / Next.js / React (frontend/)
+# -----------------------------------------------------------------------------
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/versions
+
+# Next.js build output & caches
+.next/
+out/
+build/
+dist/
+.turbo/
+.vercel/
+next-env.d.ts
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Package-manager debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# Test / coverage output
+coverage/
+.nyc_output/
+playwright-report/
+.eslintcache
+
+# -----------------------------------------------------------------------------
+# Python / GenLayer contract backend (contract/)
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Packaging / build artifacts
+*.egg-info/
+.eggs/
+*.egg
+.Python
+pip-wheel-metadata/
+
+# Test / lint / type caches
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# GenLayer tooling
+.gltest_cache/
+artifacts/
+
+# -----------------------------------------------------------------------------
+# Logs & temporary execution files
+# -----------------------------------------------------------------------------
+*.log
+logs/
+*.tmp
+*.temp
+*.pid
+*.seed
+
+# -----------------------------------------------------------------------------
+# Editor / OS noise & swap files
+# -----------------------------------------------------------------------------
+# Vim / Emacs swap & backup
+*.swp
+*.swo
+*.swn
+*~
+*.bak
+*.orig
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+.idea/
+*.iml
+.vscode/
+
+# -----------------------------------------------------------------------------
+# Local tooling config
+# -----------------------------------------------------------------------------
+.claude/settings.local.json
