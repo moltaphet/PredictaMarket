@@ -3,10 +3,18 @@
 import { createClient } from "genlayer-js";
 import { studionet } from "genlayer-js/chains";
 
-/** Read the deployed contract address from env (empty until configured). */
+/**
+ * Verified live PredictaMarket contract on GenLayer StudioNet (40-char address).
+ * Used as a fallback so the app links to the real contract even if the Vercel
+ * `NEXT_PUBLIC_CONTRACT_ADDRESS` env var is missing or misconfigured.
+ */
+export const DEFAULT_CONTRACT_ADDRESS =
+  "0x28D5dDeE6333579c98060C94bd6D27A10aA406f6" as const;
+
+/** Read the deployed contract address from env, falling back to the verified live address. */
 export function getContractAddress(): `0x${string}` | "" {
-  const address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
-  return address ? (address as `0x${string}`) : "";
+  const address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS?.trim();
+  return (address || DEFAULT_CONTRACT_ADDRESS) as `0x${string}`;
 }
 
 export function getRpcUrl(): string {
