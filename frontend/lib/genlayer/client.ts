@@ -9,7 +9,7 @@ import { studionet } from "genlayer-js/chains";
  * `NEXT_PUBLIC_CONTRACT_ADDRESS` env var is missing or misconfigured.
  */
 export const DEFAULT_CONTRACT_ADDRESS =
-  "0x28D5dDeE6333579c98060C94bd6D27A10aA406f6" as const;
+  "0x0A2cF8F0316d7F1c2DAB7Bf1d92a0e270ec0Fe76" as const;
 
 /** Read the deployed contract address from env, falling back to the verified live address. */
 export function getContractAddress(): `0x${string}` | "" {

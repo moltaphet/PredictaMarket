@@ -11,7 +11,7 @@ evidence check and agrees only on the derived `YES` / `NO` / `INVALID` outcome.
 - **Contract** — `contract/PredictaMarket.py`, a GenLayer Intelligent Contract (GenVM v0.2.16)
 - **Tests** — `contract/tests/`, 42 direct-mode tests (42/42 passing)
 - **Frontend** — `frontend/`, a Next.js 16 + Tailwind v4 dashboard wired with `genlayer-js`
-- **Live on StudioNet** — `0x28D5dDeE6333579c98060C94bd6D27A10aA406f6` (`chainId 61999`)
+- **Live on StudioNet** — `0x0A2cF8F0316d7F1c2DAB7Bf1d92a0e270ec0Fe76` (`chainId 61999`)
 
 ---
 
@@ -160,7 +160,7 @@ npm run dev          # http://localhost:3000
 `.env.local`:
 
 ```env
-NEXT_PUBLIC_CONTRACT_ADDRESS=0x28D5dDeE6333579c98060C94bd6D27A10aA406f6
+NEXT_PUBLIC_CONTRACT_ADDRESS=0x0A2cF8F0316d7F1c2DAB7Bf1d92a0e270ec0Fe76
 NEXT_PUBLIC_GENLAYER_RPC_URL=https://studio.genlayer.com/api
 NEXT_PUBLIC_GENLAYER_SYMBOL=GEN
 ```
