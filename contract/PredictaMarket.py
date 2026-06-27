@@ -8,7 +8,7 @@ from genlayer import *
 # Constants
 # --------------------------------------------------------------------------------------
 
-ATTO = 1_000_000_000_000_000_000  # 10**18 — atto scaling for on-chain money
+ATTO = 1_000_000_000_000_000_000  # 10**18 - atto scaling for on-chain money
 
 STATUS_ACTIVE = "ACTIVE"
 STATUS_PENDING = "PENDING_RESOLUTION"
@@ -32,7 +32,7 @@ ERROR_LLM = "[LLM_ERROR]"
 
 
 # --------------------------------------------------------------------------------------
-# Storage records — scalar fields only (complex/nested data is kept as JSON in DynArray[str])
+# Storage records - scalar fields only (complex/nested data is kept as JSON in DynArray[str])
 # --------------------------------------------------------------------------------------
 
 
@@ -67,7 +67,7 @@ class Position:
 
 
 def _now_iso() -> str:
-    """Transaction timestamp (ISO-8601 UTC) from the consensus message — no imports."""
+    """Transaction timestamp (ISO-8601 UTC) from the consensus message - no imports."""
     return str(gl.message_raw["datetime"])
 
 
@@ -320,7 +320,7 @@ Respond with ONLY this JSON:
         result = gl.vm.run_nondet_unsafe(leader_fn, validator_fn)
         outcome = str(result["outcome"])
 
-        # Deterministic state commit — store evidence as JSON strings (certified pattern).
+        # Deterministic state commit - store evidence as JSON strings (certified pattern).
         now = _now_iso()
         log = self.market_evidence.get_or_insert_default(key)
         for item in result["evidence"]:

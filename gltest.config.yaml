@@ -1,0 +1,19 @@
+# gltest configuration for Predicta *integration* tests.
+#
+# These tests run against a live GenLayer network with full consensus (leader +
+# validators), real web scraping and real LLM arbitration. The default network is
+# studionet (https://studio.genlayer.com) — hosted, gasless, no local infra.
+#
+#   gltest tests/integration -c tests/integration/pytest.ini -v -s
+#   gltest tests/integration -c tests/integration/pytest.ini -v -s --network localnet
+#
+# NOTE: the fast direct-mode suite under contract/tests/ is unaffected by this file —
+# it runs via the root pytest.ini with the network plugin disabled (-p no:gltest).
+networks:
+  default: studionet
+  studionet: {}
+  localnet: {}
+
+paths:
+  contracts: contract
+  artifacts: artifacts

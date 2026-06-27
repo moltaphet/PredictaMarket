@@ -11,7 +11,7 @@ evidence check and agrees only on the derived `YES` / `NO` / `INVALID` outcome.
 - **Contract** — `contract/PredictaMarket.py`, a GenLayer Intelligent Contract (GenVM v0.2.16)
 - **Tests** — `contract/tests/`, 42 direct-mode tests (42/42 passing)
 - **Frontend** — `frontend/`, a Next.js 16 + Tailwind v4 dashboard wired with `genlayer-js`
-- **Live on StudioNet** — `0x0A2cF8F0316d7F1c2DAB7Bf1d92a0e270ec0Fe76` (`chainId 61999`)
+- **Live on StudioNet** — `0x84C04774b0abD7c8a3578465AbCF4cF95d4c3756` (`chainId 61999`)
 
 ---
 
@@ -107,7 +107,8 @@ Every change was verified with the official toolchain (`genvm-lint check`) again
 
 ### Prerequisites
 
-- **Python 3.12+** and **Node 20+**
+- **Python 3.12** and **Node 20+**
+  *(use 3.12 specifically — the `genlayer-test` toolchain pulls in an `antlr4` build that imports `typing.io`, which was removed in Python 3.13+. With `uv`: `uv venv --python 3.12 .venv && source .venv/bin/activate`.)*
 - GenLayer tooling:
   ```bash
   pip install genlayer-test genvm-linter   # direct-mode test runner + contract linter
@@ -160,7 +161,7 @@ npm run dev          # http://localhost:3000
 `.env.local`:
 
 ```env
-NEXT_PUBLIC_CONTRACT_ADDRESS=0x0A2cF8F0316d7F1c2DAB7Bf1d92a0e270ec0Fe76
+NEXT_PUBLIC_CONTRACT_ADDRESS=0x84C04774b0abD7c8a3578465AbCF4cF95d4c3756
 NEXT_PUBLIC_GENLAYER_RPC_URL=https://studio.genlayer.com/api
 NEXT_PUBLIC_GENLAYER_SYMBOL=GEN
 ```
